@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Escenas/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Escenas/Curar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Escenas/Player1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Escenas/Escenarios/Escenario3.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Escenas/UI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Escenas/Cambio.tscn" type="PackedScene" id=6]
+
+[node name="Pantalla3" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource( 4 )]
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 506.497, 486.694 )
+
+[node name="UI" parent="." instance=ExtResource( 5 )]
+
+[node name="Curar" parent="." instance=ExtResource( 2 )]
+position = Vector2( 185.179, 407.886 )
+
+[node name="Pantalla2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 498.906, 566.437 )
+
+[node name="Enemy" parent="." instance=ExtResource( 1 )]
+position = Vector2( 757.948, 272.941 )

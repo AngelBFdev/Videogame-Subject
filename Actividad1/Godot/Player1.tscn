@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Sprites/PlayerActions.png" type="Texture" id=1]
+[ext_resource path="res://PlayerMove.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 16.9292
+
+[sub_resource type="Animation" id=2]
+resource_name = "Daño"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 3 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.8
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 2 ]
+}
+
+[node name="Player1" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( -1.76777, -5.12652 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+"anims/Daño" = SubResource( 2 )
+anims/Idle = SubResource( 3 )
+anims/Walk = SubResource( 4 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

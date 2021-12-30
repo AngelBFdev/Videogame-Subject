@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Escenas/Escenarios/Escenario1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Escenas/Player1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Escenas/UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Escenas/Cambio.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Pantalla1.gd" type="Script" id=5]
+[ext_resource path="res://Escenas/NPC.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/Dialogo2.gd" type="Script" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 111.495, 37.3524 )
+
+[node name="Pantalla1" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Pantalla2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 510.83, -3.96176 )
+
+[node name="Escenario" parent="." instance=ExtResource( 1 )]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 267.892, 284.892 )
+
+[node name="UI" parent="." instance=ExtResource( 3 )]
+
+[node name="Player2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 380.359, 92.4598 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 510.909, 76.1085 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true,
+"_editor_description_": ""
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_Area2D_body_exited"]

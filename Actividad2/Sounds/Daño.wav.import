@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Daño.wav-cb7498078bf4a45f2efc3ea47e581dcb.sample"
+
+[deps]
+
+source_file="res://Sounds/Daño.wav"
+dest_files=[ "res://.import/Daño.wav-cb7498078bf4a45f2efc3ea47e581dcb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
